@@ -2,8 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Website for information on Technology">
+    <meta name="keywords" content="Cyber Security, Ai, Software, technology, certificates, certification">
+    <meta name="author" content="Miguel Gomez">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="120">
     <title>Innovative Tech Blog</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- adds my style.csscss -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><!-- also adds logo css-->
     <style>
 
     </style>
@@ -17,13 +23,36 @@
         gtag('config', 'G-FGET6GS829');
     </script>
 </head>
-<body>
 
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let slideIndex = 0;
+            let slides = document.querySelectorAll(".slideshow img");
+    
+            function showSlide(index) {
+                slides.forEach(slide => slide.style.display = "none");
+                slides[index].style.display = "block";
+            }
+    
+            function changeSlide(n) {
+                slideIndex = (slideIndex + n + slides.length) % slides.length;
+                showSlide(slideIndex);
+            }
+    
+            setInterval(() => changeSlide(1), 3000); // Auto-slide every 3 seconds
+    
+            // Show the first slide initially
+            showSlide(slideIndex);
+    
+            // Event Listeners for buttons
+            document.querySelector(".prev").addEventListener("click", () => changeSlide(-1));
+            document.querySelector(".next").addEventListener("click", () => changeSlide(1));
+        });
+    </script>
 
     <header>
-        <img src="Images/logo-png.png" width="300 px" height="auto" alt="logo">
-        
-        <h1>Home</h1>
+        <img src="Images/logo-png.png" id="logo"width="300 px" height="auto" alt="logo">
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -35,19 +64,27 @@
     </header>
     <main>
     <section>
-
+        <h1>Home</h1>
     <div class="slideshow">
         <div>
-            <img src="Images/cyb.jpg" alt="Image 1" width="500" height="300">
+            <a href="LatestNews.html#s1">
+                <img src="Images/cyb.jpg" alt="Image 1" width="500" height="300">
+            </a>
         </div>
         <div>
-            <img src="Images/ai.jpg" alt="Image 2" width="500" height="300">
+            <a href="LatestNews.html#s2">
+                <img src="Images/ai.jpg" alt="Image 2" width="500" height="300">
+            </a>
         </div>
         <div>
-            <img src="Images/sw.png" alt="Image 3" width="500" height="300">
+            <a href="LatestNews.html#s3">
+                <img src="Images/sw.png" alt="Image 3" width="500" height="300">
+            </a>
         </div>
         <div>
-            <img src="Images/other.png" alt="Image 4" width="500" height="300">
+            <a href="LatestNews.html#s3">
+                <img src="Images/other.png" alt="Image 4" width="500" height="300">
+            </a>
         </div>
 
         <!-- Navigation Buttons -->
@@ -99,6 +136,9 @@
         <h3> Innovative Tech Blog</h3>
         <p>&copy; 2025 My Website. All rights reserved.</p>
         <p>Find us on: </p>
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-instagram"></a>
 
     </footer>
 
