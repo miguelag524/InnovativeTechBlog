@@ -60,7 +60,7 @@ header {
 footer {
     text-align: left;             /* Aligns text to the left */
     padding: 20px;
-    background-color: grey;      /* Set background color to grey */
+    background-color: black;      /* Set background color to grey */
     color: rgb(255, 255, 255);                /* Text color */
     margin-left: 20px; 
     width: 100%;                 /* Ensures the footer stretches the full width */
