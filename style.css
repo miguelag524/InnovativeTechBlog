@@ -108,9 +108,10 @@ main > div {
 }
 
 /* Section Styling */
+/* Section Styling */
 section {
     flex: 2; /* Allow the section to take more space */
-    width: 100%;
+    width: auto; /* Let flex grow naturally */
     max-width: 800px;
     background: rgba(255, 255, 255, 0.1);
     padding: 20px;
@@ -121,6 +122,7 @@ section {
 /* Aside (Sidebar) Styling */
 aside {
     flex: 1; /* Allow the aside to take up less space */
+    width: auto; /* Let flex grow naturally */
     min-width: 250px; /* Ensure it has a minimum width */
     max-width: 300px;
     background: rgba(255, 255, 255, 0.05);
