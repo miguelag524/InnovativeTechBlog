@@ -1,50 +1,22 @@
 /* Root style for all pages */
 :root {
-    --header-bg: #1e1e2f; /* header background */
-    --header-text: #ffffff;/* header text color*/
-    --body-bg: #070040;/* body default color*/
-    --text-color: #aed3e1; /* text default color*/
-    --button-bg: lightblue;
-    --button-text: #000;
-}
-html {
-    font-size: clamp(14px, 1.5vw, 16px);
-}
-/* This is the css for the slide shows*/
-/* I got help for the slides from w3schools: https://www.w3schools.com/howto/howto_js_slideshow.asp*/
-.slideshow {
-    position: relative;
-    max-width: 100%; /* Allow for responsive resizing */
-    margin: 0 auto; /* Center the slideshow horizontally */
-}
-.slideshow img {
-    width: 100%; /* Makes the img take the whole section*/
-    display: none;
+    --header-bg: #1e1e2f;        /* header background */
+    --header-text: #ffffff;      /* header text color */
+    --body-bg: #070040;          /* body background color */
+    --text-color: #aed3e1;       /* default text color */
+    --button-bg: lightblue;      /* button background */
+    --button-text: #000;         /* button text color */
 }
 
-.slideshow img:first-child {
-    display: block;/* Displays first image by default */
+/* Reset box sizing for layout consistency */
+* {
+    box-sizing: border-box;
 }
-
-.prev, .next {
-    cursor: pointer; /* Shows a pointer cursor to indicate that the arrows are clickable */
-    font-size: 2rem; /* Increases the size of the arrows */
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 10px;
-    user-select: none;
-}
-
-.prev { left: 5px; } /* Makes slideshow arrow on left of img  */
-.next { right: 5px; }/* Makes slideshow arrow on right of img  */
 
 /* General Page Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: var(--body-bg); /* Sets the background color of the body using root*/
+    background-color: var(--body-bg);
     color: var(--text-color);
     margin: 0;
     padding: 0;
@@ -53,45 +25,51 @@ body {
     align-items: center;
 }
 
-/* Styling for the header */
 header {
-    background-color:rgba(0, 255, 255, 0.7);
+    background-color: rgba(0, 255, 255, 0.7);
     padding: 20px 0;
     width: 100%;
 }
-footer {
-    text-align: left;             /* Aligns text to the left */
-    padding: 20px;
-    background-color: black;      /* Set background color to grey */
-    color: rgb(255, 255, 255);                /* Text color */
-    padding-left: 20px; 
-    width: 100%;                 /* Ensures the footer stretches the full width */
+/* Make sure long URLs wrap properly but keep block layout */
+section ul li a {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    white-space: normal;
+    display: block; /* ensures each link appears on its own line */
+    max-width: 100%;
 }
 
+footer {
+    text-align: left;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    width: 100%;
+    margin-left: 20px;
+}
 
-/* Styling for the logo container */
 #logo-container {
-    text-align: left; /* Align the logo to the left */
-    padding-left: 20px; /* Add space from the left side */
-    margin-bottom: 10px; /* Adds space between the logo and nav */
+    text-align: left;
+    padding-left: 20px;
+    margin-bottom: 10px;
     width: 100%;
 }
 
 #logo {
-    max-width: 100%;
+    width: 300px;
     height: auto;
 }
 
-/* Styling for the nav */
+/* Navigation Bar */
 nav {
     display: flex;
-    justify-content: center; /* Center the nav items */
-    padding: 10px 0; 
+    justify-content: center;
+    padding: 10px 0;
 }
 
 nav ul {
     display: flex;
-    list-style-type: none;
+    list-style: none;
     margin: 0;
     padding: 0;
 }
@@ -111,30 +89,53 @@ nav a:hover {
     color: darkblue;
 }
 
-/* Sections */
+
+/* Main Layout using Flexbox */
+main {
+    display: flex;  /* Enable flexbox to allow side-by-side layout */
+    flex-wrap: wrap; /* Allow elements to wrap on smaller screens */
+    justify-content: space-between; /* Space out the elements */
+    gap: 20px; /* Add space between the elements */
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+/* Styling for div elements to stack vertically */
+main > div {
+    display: block;  /* Ensures that each div is treated as a block-level element */
+    width: 100%;     /* Ensure divs take up full width */
+    margin-bottom: 20px;  /* Add space between each div */
+}
+
+/* Section Styling */
 section {
-    flex: 2;
-    width: 90%;
-    max-width: 900px;
+    flex: 2; /* Allow the section to take more space */
+    width: 100%;
+    max-width: 800px;
     background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 8px;
     margin: 20px 0;
 }
+
+/* Aside (Sidebar) Styling */
 aside {
-    flex: 1; /* Takes less space */
-    min-width: 250px;
+    flex: 1; /* Allow the aside to take up less space */
+    min-width: 250px; /* Ensure it has a minimum width */
     max-width: 300px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* Forms (for feedback.html) */
+/* Form Styling */
 form {
     background: #1e1e2f;
     padding: 20px;
     border-radius: 8px;
     color: white;
-    width: 90%;
-    max-width: 600px;
+    width: 100%;
 }
 
 input, textarea {
@@ -146,8 +147,8 @@ input, textarea {
 }
 
 button {
-    background-color: var(--button-bg); /* Sets the background color of button using root*/
-    color: var(--button-text); /* Sets color of button using root*/
+    background-color: var(--button-bg);
+    color: var(--button-text);
     padding: 10px 20px;
     border: none;
     font-size: 1rem;
@@ -156,23 +157,52 @@ button {
 }
 
 button:hover {
-    background-color: darkblue; /*color of button when hovering*/
+    background-color: darkblue;
 }
 
+/* Hyperlink Styling */
 a {
-    color: lightcoral; /* makes link text more visible*/
-    
-  }
-a:hover {
-    color: rgb(136, 57, 125); /* link color when hovered*/
-    
+    color: lightcoral;
 }
 
-/* Social Media CSS*/
-/* I got this information from w3schools: https://www.w3schools.com/howto/howto_css_social_media_buttons.asp */
-/* I am able to use the logo lost from w3schools and also my css*/
-    
-.fa {           /* sets the logo size*/
+a:hover {
+    color: rgb(136, 57, 125);
+}
+
+/* Slideshow Styling */
+.slideshow {
+    position: relative;
+    width: 800px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.slideshow img {
+    width: 100%;
+    display: none;
+}
+
+.slideshow img:first-child {
+    display: block;
+}
+
+.prev, .next {
+    cursor: pointer;
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    user-select: none;
+}
+
+.prev { left: 5px; }
+.next { right: 5px; }
+
+/* Social Media Icons */
+.fa {
     padding: 20px;
     font-size: 30px;
     width: 30px;
@@ -180,38 +210,46 @@ a:hover {
     text-decoration: none;
     margin: 5px 2px;
     border-radius: 50%;
-  }
-  
-  .fa:hover { /* lowers opasity when hovering logo*/ 
-      opacity: 0.7;
-  }
-  
-  .fa-facebook {            /* facebook logo */
-    background: #3B5998;
-    color: white;
-  }
-  
-  .fa-twitter {             /* twitter logo */
-    background: #55ACEE;
-    color: white;
-  }
+}
 
-  .fa-instagram {           /* instagram logo logo */
-    background: #125688;
-    color: white;
-      }
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook { background: #3B5998; color: white; }
+.fa-twitter { background: #55ACEE; color: white; }
+.fa-instagram { background: #125688; color: white; }
+
+/* Typography scaling for better readability */
+html {
+    font-size: 16px;
+}
+
 /* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    section, form, aside {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .slideshow {
+        width: 100%;
+    }
+
     header h1 {
-        font-size: 2rem; /* Reduces the font size of h1 for smaller screens */
-    }
-
-    .nav {
-        display: flex;
-        flex-direction: column; /* Stacks the navigation items vertically */
-    }
-
-    .nav a {
-        margin: 5px 0; /* adds space btw nav */
+        font-size: 1.5rem;
     }
 }
