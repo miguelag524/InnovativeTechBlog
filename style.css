@@ -7,11 +7,13 @@
     --button-bg: lightblue;
     --button-text: #000;
 }
+html {
+    font-size: clamp(14px, 1.5vw, 16px);
+}
 /* This is the css for the slide shows*/
 /* I got help for the slides from w3schools: https://www.w3schools.com/howto/howto_js_slideshow.asp*/
 .slideshow {
     position: relative;
-    width: 800px;  /* Define the width of the slideshow */
     max-width: 100%; /* Allow for responsive resizing */
     margin: 0 auto; /* Center the slideshow horizontally */
 }
@@ -62,7 +64,7 @@ footer {
     padding: 20px;
     background-color: black;      /* Set background color to grey */
     color: rgb(255, 255, 255);                /* Text color */
-    margin-left: 20px; 
+    padding-left: 20px; 
     width: 100%;                 /* Ensures the footer stretches the full width */
 }
 
@@ -76,7 +78,7 @@ footer {
 }
 
 #logo {
-    width: 300px; /* Adjust logo size */
+    max-width: 100%;
     height: auto;
 }
 
