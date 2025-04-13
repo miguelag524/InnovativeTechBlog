@@ -7,6 +7,9 @@
     --button-bg: lightblue;      /* button background */
     --button-text: #000;         /* button text color */
 }
+html {
+    font-size: clamp(14px, 1.5vw, 16px);
+}
 
 /* Reset box sizing for layout consistency */
 * {
@@ -56,7 +59,7 @@ footer {
 }
 
 #logo {
-    width: 300px;
+    max-width: 100%;
     height: auto;
 }
 
