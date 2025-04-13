@@ -113,12 +113,18 @@ nav a:hover {
 
 /* Sections */
 section {
+    flex: 2;
     width: 90%;
     max-width: 900px;
     background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 8px;
     margin: 20px 0;
+}
+aside {
+    flex: 1; /* Takes less space */
+    min-width: 250px;
+    max-width: 300px;
 }
 
 /* Forms (for feedback.html) */
