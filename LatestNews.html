@@ -25,7 +25,7 @@
 <body>
 
     <header>
-        <img src="Images/logo-png.png" width="300px" height="auto">
+        <img src="Images/logo-png.png" alt="logo" id="logo">
         
         
         <nav>
@@ -44,9 +44,9 @@
         <div>
         <h2>Table of Contents</h2>
         <ul>
-            <li><a href="#Cyber">Cyber Security</a></li>
-            <li><a href="#AI">AI</a></li>
-            <li><a href="#sw">Software</a></li>
+            <li><a href="#Cy">Cyber Security</a></li>
+            <li><a href="#a">AI</a></li>
+            <li><a href="#s">Software</a></li>
         </ul>
         </div>
         <div>
@@ -59,27 +59,33 @@
     </aside>
     </div> 
 
- 
+    <img src="Images\soc.jpg" alt="image of soc room" id="Cy">
     <div> 
-        <h2 id="s1">Cyber Security</h2>
-        <ul id="Cyber"></ul>
+        <h2 id="s1">Cyber Security</h2> 
+        <ul id="Cyber"></ul>  <!-- This is used to bring the rss scipt to this section-->
         <p>More info at: https://thehackernews.com/feeds/posts/default</p>
+        <img src="Images\a.jpg" alt="image of soc room" id="a" width="600px">
         <h2 id="s2">AI</h2>
         <ul id="AI"></ul>
         <p>More info at https://techcrunch.com/tag/artificial-intelligence/feed/</p>
+        <img src="Images\sft.webp" alt="image of soc room" id="s" width="600px">
         <h2 id="s3">Software</h2>
         
         <ul id="sw"></ul>
         <p>More info at https://techxplore.com/software-news/</p>       
         <ul id="sw2"></ul>        
         <p>More info at: https://sdtimes.com/</p>
+        <!--I used 2 different sources to find out how to do an rss feed 
+        (https://www.w3schools.com/xml/xml_rss.asp) teaches what an rss is and how it works
+        (https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) tells how the scipting can be used
+        (https://rss.bloople.net/) is a website that assists with the script function code-->
         <script>
             async function fetchRSS(url, elementId) {
                 try {
                     let response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${url}`);
                     let data = await response.json();
                     
-                    let feedContainer = document.getElementById(elementId);
+                    let feedContainer = document.getElementById(elementId); //searches for ul id to add information
                     data.items.slice(0, 5).forEach(item => {  // Show only top 5 articles
                         let listItem = document.createElement("li");
                         listItem.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a>`;
@@ -91,12 +97,14 @@
             }
     
             // Fetch TechCrunch RSS Feeds
+            //uses the script function and adds the website data to the ul with its id
             fetchRSS("https://thehackernews.com/feeds/posts/default", "Cyber");
             fetchRSS("https://techcrunch.com/tag/artificial-intelligence/feed/", "AI");
             fetchRSS("https://techxplore.com/rss-feed/software-news/","sw" )
             fetchRSS("https://sdtimes.com/feed/","sw2")
         </script>
     </div>
+    
     <h1></h1>
     <h1></h1>
     </main>
