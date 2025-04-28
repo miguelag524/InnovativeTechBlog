@@ -8,7 +8,7 @@
     --button-text: #000;         /* button text color */
 }
 html {
-    font-size: clamp(14px, 1.5vw, 16px);
+    font-size: clamp(14px, 1.5vw, 16px); /* This changes the font for different devices allowing accessability */
 }
 
 /* Reset box sizing for layout consistency */
@@ -65,14 +65,14 @@ footer {
 
 /* Navigation Bar */
 nav {
-    display: flex;
-    justify-content: center;
+    display: flex; /* lines navs horizontally */
+    justify-content: center; 
     padding: 10px 0;
 }
 
 nav ul {
     display: flex;
-    list-style: none;
+    list-style: none; /* remove bullets from list*/
     margin: 0;
     padding: 0;
 }
@@ -85,7 +85,7 @@ nav a {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.1rem; /* makes text slightly bigger*/
 }
 
 nav a:hover {
