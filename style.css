@@ -3,7 +3,7 @@
     --header-bg: #1e1e2f;        /* header background */
     --header-text: #ffffff;      /* header text color */
     --body-bg: #070040;          /* body background color */
-    --text-color: #FFFFFF;       /* default text color */
+    --text-color: #FFFFFF	;       /* default text color */
     --button-bg: lightblue;      /* button background */
     --button-text: #000;         /* button text color */
 }
@@ -19,7 +19,7 @@ html {
 /* General Page Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: var(--body-bg);
+    background-color: var(--body-bg); /* Matches the background color stated in root section */ 
     color: var(--text-color);
     margin: 0;
     padding: 0;
@@ -35,15 +35,15 @@ header {
 }
 /* Make sure long URLs wrap properly but keep block layout */
 section ul li a {
-    word-break: break-word;
+    word-break: break-word;  /* Makes the layout mobile friendly by taking into account screen size */ 
     overflow-wrap: anywhere;
     white-space: normal;
     display: block; /* ensures each link appears on its own line */
     max-width: 100%;
 }
-
+ /* Edits the footer */ 
 footer {
-    text-align: left;
+    text-align: left; 
     padding: 20px;
     background-color: black;
     color: white;
@@ -52,15 +52,15 @@ footer {
 }
 
 #logo-container {
-    text-align: left;
-    padding-left: 20px;
-    margin-bottom: 10px;
-    width: 100%;
+    display: flex;
+    align-items: center; /* vertically center if needed */
+    padding: 10px 20px; /* small padding*/
+    width: auto; /* shrink to fit content */
 }
 
 #logo {
-    max-width: 100%;
-    height: auto;
+    width: 300px; /* small fixed width for logo */
+    height: auto; /* keep aspect ratio */
 }
 
 /* Navigation Bar */
